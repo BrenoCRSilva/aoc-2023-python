@@ -1,14 +1,15 @@
 import sys
 import re
 
+def main():
+    text = open(sys.argv[1]).read().split("\n")
+    print(count_red_green_blue(text))
 
-D = open(sys.argv[1]).read().split("\n")
-
-def count_red_green_blue(D):   
+def count_red_green_blue(text):   
     p1 = 0
     p2 = 0
-    for line in D:
-        idx = D.index(line) + 1
+    for line in text:
+        idx = text.index(line) + 1
         red = re.findall(r'[0-9]+ red', line)
         blue = re.findall(r'[0-9]+ blue', line)
         green = re.findall(r'[0-9]+ green', line)   
@@ -27,4 +28,4 @@ def count_red_green_blue(D):
         p2 += power
     return p1, p2
 
-print(count_red_green_blue(D))
+
